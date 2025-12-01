@@ -1,42 +1,42 @@
 
 # 🧩 Proyecto: Custom Hooks (React + Vite)
 
-Este repositorio contiene un pequeño proyecto de ejemplo que muestra cómo crear y usar *Custom Hooks* en React para reutilizar lógica y mantener componentes limpios.
+This repository contains a small example project that demonstrates how to create and use Custom Hooks in React to reuse logic and keep components clean.
 
-El proyecto usa **React** y **Vite** y contiene hooks reutilizables y componentes de ejemplo.
+The project uses React and Vite, and includes reusable hooks and example components.
 
 ---
 
-## 🚀 Tecnologías
-- React (según `package.json`): 19.x
+## 🚀 Technologies
+- React (according to package.json): 19.x
 - Vite
 - JavaScript (ES Modules)
 
 ---
 
-## 📦 Instalación
+## 📦 Installation
 
 ```powershell
-git clone https://github.com/tu-usuario/Custom_hooks.git
+git clone https://github.com/BryanS1996/Custom_hooks.git
 cd Custom_hooks
 npm install
 ```
 
-Nota para Windows/PowerShell: si `npm run dev` falla por la política de ejecución, puedes usar `npm.cmd run dev` o ejecutar PowerShell como Administrador y ajustar la política (`Set-ExecutionPolicy RemoteSigned`).
+Note for Windows/PowerShell: if `npm run dev` fails due to execution policy restrictions, you can use `npm.cmd run dev` or run PowerShell as Administrator and adjust the policy using `Set-ExecutionPolicy RemoteSigned`.
 
 ---
 
-## ▶ Ejecutar en desarrollo
+## ▶ Run in Development
 
 ```powershell
 npm.cmd run dev
 ```
 
-Luego abre `http://localhost:5173` en tu navegador.
+Then open `http://localhost:5173` in your browser.
 
 ---
 
-## 🏗 Estructura relevante del proyecto
+## 🏗 Project Structure
 
 ```plaintext
 src/
@@ -57,12 +57,12 @@ src/
 
 ---
 
-## 🧩 Hooks incluidos y ejemplos
+## 🧩 Included Hooks and Examples
 
 ### `useCounter` (src/hooks/useCounter.js)
-Hook simple para manejar un contador.
+A simple hook for managing a `counter`.
 
-Ejemplo de uso en `Counter.jsx`:
+Example usage in Counter.jsx:
 
 ```jsx
 import { useCounter } from '../hooks/useCounter';
@@ -71,20 +71,21 @@ const { count, increment, decrement, reset } = useCounter(3);
 ```
 
 ### `useFetch` (src/hooks/useFetch.js)
-Hook para consumir APIs con `fetch`.
+A hook for consuming APIs using `fetch`.
 
-Ejemplo breve:
+Quick example:
 
 ```jsx
 const { data, loading } = useFetch('https://jsonplaceholder.typicode.com/posts');
 ```
 
-Nota: `Posts.jsx` ya protege contra `null` cuando no hay datos.
+Note: `Posts.jsx` already handles `null` when no data is available.
 
-### `useLocalStorage` (src/hooks/useLocalStorage.js)
-Hook para persistir estado en `localStorage`.
+`useLocalStorage` (src/hooks/useLocalStorage.js)
 
-Ejemplo:
+A hook to persist state in `localStorage`.
+
+Example:
 
 ```jsx
 const [theme, setTheme] = useLocalStorage('theme', 'light');
