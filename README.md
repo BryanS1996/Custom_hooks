@@ -1,5 +1,7 @@
 
-# 🧩 Proyecto: Custom Hooks (React + Vite)
+# 🧩 Proyect: Custom Hooks (React + Vite)
+
+## Members: Bryan Chileno, Abel Navarrete 
 
 This repository contains a small example project that demonstrates how to create and use Custom Hooks in React to reuse logic and keep components clean.
 
@@ -99,3 +101,6 @@ const [theme, setTheme] = useLocalStorage('theme', 'light');
 - `ThemeToggle` — cambia tema usando `useLocalStorage` y aplica `data-theme` en el `documentElement`.
 
 ---
+
+## References: 
+- https://react.dev/learn/reusing-logic-with-custom-hooks
