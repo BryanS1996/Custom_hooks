@@ -1,130 +1,209 @@
-📌 Introduction
+# 🧩 Proyecto React con Custom Hooks  
+*React Custom Hooks Project (English version below)*
 
-Custom Hooks are one of React’s most powerful features. They let you share stateful logic between multiple components without duplicating code.
+Este es un proyecto demostrativo construido con **React + Vite**, que muestra cómo crear y usar **Custom Hooks** para reutilizar lógica y mejorar la organización del código.
 
-React Router provides hooks like useParams and useNavigate. Similarly, you can create your own hooks to encapsulate:
+Incluye hooks personalizados como:
+- `useCounter` → Manejo de contadores  
+- `useToggle` → Estados booleanos  
+- `useFetch` → Consumo de APIs  
+- `useForm` → Manejo de formularios  
+- `useLocalStorage` → Persistencia en el navegador  
 
-Side effects (useEffect)
+---
 
-Reusable state (useState)
+# 🇪🇸 **ESPAÑOL**
 
-API fetching
+## 🚀 Tecnologías usadas
+- React 18  
+- Vite  
+- JavaScript ES Modules  
+- Fetch API  
+- LocalStorage API  
 
-Document title updates
+---
 
-Form logic
+## 📦 Instalación
 
-Event listeners and more
-
-A Custom Hook is just a function that:
-
-Starts with use
-
-Uses other React hooks inside it
-
-⚙️ Setup
-
-Install dependencies:
-
+```bash
+git clone https://github.com/tu-usuario/react-custom-hooks.git
+cd react-custom-hooks
 npm install
+```
 
+---
 
-Run the backend:
+## ▶ Ejecutar en modo desarrollo
 
-npm run server
+```bash
+npm run dev
+```
 
+Abrir en el navegador:  
+👉 http://localhost:5173/
 
-Run the frontend:
+---
 
-npm start
+## 🏗 Estructura del proyecto
 
+```plaintext
+📁 src
+ ├── 📁 hooks
+ │    ├── useCounter.js
+ │    ├── useFetch.js
+ │    ├── useToggle.js
+ │    ├── useForm.js
+ │    └── useLocalStorage.js
+ │
+ ├── components
+ │    ├── Counter.jsx
+ │    ├── UsersList.jsx
+ │    ├── ToggleBox.jsx
+ │    ├── FormExample.jsx
+ │    └── LocalStorageExample.jsx
+ │
+ ├── App.jsx
+ ├── main.jsx
+ └── styles.css
+```
 
-This project focuses on two components:
+---
 
-HomePage
+## 🧩 Custom Hooks incluidos
 
-ArticlePage
+### 🔢 `useCounter`
+Controla un contador.
 
-Both share similar logic — making them ideal for Custom Hooks.
+```js
+const { counter, increase, decrease, reset } = useCounter(0);
+```
 
-🎣 Creating a Custom Hook: useDocumentTitle
+---
 
-Both HomePage and ArticlePage update the browser’s document title using useEffect.
+### 🌐 `useFetch`
+Para consumir APIs.
 
-To avoid repeating code, extract that logic into a custom hook:
+```js
+const { data, loading, error } = useFetch("https://jsonplaceholder.typicode.com/users");
+```
 
-/src/hooks/useDocumentTitle.js
-import { useEffect } from "react";
+---
 
-function useDocumentTitle(pageTitle) {
-  useEffect(() => {
-    document.title = pageTitle;
-  }, [pageTitle]);
-}
+### 🎚️ `useToggle`
+Maneja valores booleanos.
 
-export default useDocumentTitle;
+```js
+const { value, toggle } = useToggle(false);
+```
 
-🧪 Using it:
-useDocumentTitle("Underreacted | Home");
+---
 
-🔄 Creating a Data Fetching Hook: useQuery
+### 📝 `useForm`
+Manejo de formularios.
 
-Both HomePage and ArticlePage fetch data from the API using useState and useEffect.
+```js
+const { form, handleChange, resetForm } = useForm({ name: "", email: "" });
+```
 
-We can extract that repeated logic:
+---
 
-/src/hooks/useQuery.js
-import { useState, useEffect } from "react";
+### 💾 `useLocalStorage`
+Lee y guarda información en el navegador.
 
-function useQuery(url) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [data, setData] = useState(null);
+```js
+const [value, setValue] = useLocalStorage("key", "valor inicial");
+```
 
-  useEffect(() => {
-    setIsLoaded(false);
-    fetch(url)
-      .then((r) => r.json())
-      .then((data) => {
-        setData(data);
-        setIsLoaded(true);
-      });
-  }, [url]);
+---
 
-  return { data, isLoaded };
-}
+## 📗 ¿Qué son los Custom Hooks?
 
-export default useQuery;
+Son funciones que:
+✔ Comienzan con `use`  
+✔ Usan otros hooks de React  
+✔ Permiten reutilizar lógica entre componentes  
 
-🧪 Using it in HomePage:
-const { data: posts, isLoaded } = useQuery("http://localhost:4000/posts");
+Documentación oficial:  
+https://react.dev/learn/reusing-logic-with-custom-hooks
 
-🧪 Using it in ArticlePage:
-const { data: post, isLoaded } = useQuery(`http://localhost:4000/posts/${id}`);
+---
 
-⭐ Possible Improvements
+# 🇺🇸 **ENGLISH VERSION**
 
-You could enhance the hook with:
+# 🧩 React Custom Hooks Project
 
-Error handling
+This is a demonstration project built with **React + Vite**, showing how to create and use **Custom Hooks** to reuse logic and improve code organization.
 
-Abort controllers to cancel fetch
+Includes custom hooks such as:
+- `useCounter` → Counter logic  
+- `useToggle` → Boolean state control  
+- `useFetch` → API consumption  
+- `useForm` → Form handling  
+- `useLocalStorage` → Persistent storage  
 
-Caching
+---
 
-Using useReducer for state transitions
+## 🚀 Technologies Used
+- React 18  
+- Vite  
+- JavaScript ES Modules  
+- Fetch API  
+- LocalStorage API  
 
-Memoization
+---
 
-Or use libraries like React Query, which offer advanced data-fetching hooks.
+## 📦 Installation
 
-🏁 Conclusion
+```bash
+git clone https://github.com/your-username/react-custom-hooks.git
+cd react-custom-hooks
+npm install
+```
 
-Custom Hooks help you:
+---
 
-✔ Reuse complex logic
-✔ Create cleaner and smaller components
-✔ Share state logic easily
-✔ Improve maintainability
+## ▶ Run in Development Mode
 
-Custom Hooks are widely used in the React ecosystem (React Router, Redux).
-Mastering them is essential for scalable and professional React development.
+```bash
+npm run dev
+```
+
+Open the browser:  
+👉 http://localhost:5173/
+
+---
+
+## 🏗 Project Structure
+
+```plaintext
+📁 src
+ ├── 📁 hooks
+ │    ├── useCounter.js
+ │    ├── useFetch.js
+ │    ├── useToggle.js
+ │    ├── useForm.js
+ │    └── useLocalStorage.js
+ │
+ ├── components
+ │    ├── Counter.jsx
+ │    ├── UsersList.jsx
+ │    ├── ToggleBox.jsx
+ │    ├── FormExample.jsx
+ │    └── LocalStorageExample.jsx
+ │
+ ├── App.jsx
+ ├── main.jsx
+ └── styles.css
+```
+
+---
+
+## 📘 What Are Custom Hooks?
+
+They are functions that:  
+✔ Start with `use`  
+✔ Use React’s built-in hooks  
+✔ Allow reusing logic across components  
+
+Official docs:  
+https://react.dev/learn/reusing-logic-with-custom-hooks
