@@ -1,209 +1,100 @@
-# 🧩 Proyecto React con Custom Hooks  
-*React Custom Hooks Project (English version below)*
 
-Este es un proyecto demostrativo construido con **React + Vite**, que muestra cómo crear y usar **Custom Hooks** para reutilizar lógica y mejorar la organización del código.
+# 🧩 Proyecto: Custom Hooks (React + Vite)
 
-Incluye hooks personalizados como:
-- `useCounter` → Manejo de contadores  
-- `useToggle` → Estados booleanos  
-- `useFetch` → Consumo de APIs  
-- `useForm` → Manejo de formularios  
-- `useLocalStorage` → Persistencia en el navegador  
+Este repositorio contiene un pequeño proyecto de ejemplo que muestra cómo crear y usar *Custom Hooks* en React para reutilizar lógica y mantener componentes limpios.
+
+El proyecto usa **React** y **Vite** y contiene hooks reutilizables y componentes de ejemplo.
 
 ---
 
-# 🇪🇸 **ESPAÑOL**
-
-## 🚀 Tecnologías usadas
-- React 18  
-- Vite  
-- JavaScript ES Modules  
-- Fetch API  
-- LocalStorage API  
+## 🚀 Tecnologías
+- React (según `package.json`): 19.x
+- Vite
+- JavaScript (ES Modules)
 
 ---
 
 ## 📦 Instalación
 
-```bash
-git clone https://github.com/tu-usuario/react-custom-hooks.git
-cd react-custom-hooks
+```powershell
+git clone https://github.com/tu-usuario/Custom_hooks.git
+cd Custom_hooks
 npm install
 ```
 
+Nota para Windows/PowerShell: si `npm run dev` falla por la política de ejecución, puedes usar `npm.cmd run dev` o ejecutar PowerShell como Administrador y ajustar la política (`Set-ExecutionPolicy RemoteSigned`).
+
 ---
 
-## ▶ Ejecutar en modo desarrollo
+## ▶ Ejecutar en desarrollo
 
-```bash
-npm run dev
+```powershell
+npm.cmd run dev
 ```
 
-Abrir en el navegador:  
-👉 http://localhost:5173/
+Luego abre `http://localhost:5173` en tu navegador.
 
 ---
 
-## 🏗 Estructura del proyecto
+## 🏗 Estructura relevante del proyecto
 
 ```plaintext
-📁 src
- ├── 📁 hooks
- │    ├── useCounter.js
- │    ├── useFetch.js
- │    ├── useToggle.js
- │    ├── useForm.js
- │    └── useLocalStorage.js
- │
- ├── components
- │    ├── Counter.jsx
- │    ├── UsersList.jsx
- │    ├── ToggleBox.jsx
- │    ├── FormExample.jsx
- │    └── LocalStorageExample.jsx
- │
- ├── App.jsx
- ├── main.jsx
- └── styles.css
+src/
+ ├─ assets/
+ ├─ components/
+ │   ├─ Counter.jsx
+ │   ├─ Posts.jsx
+ │   └─ ThemeToggle.jsx
+ ├─ hooks/
+ │   ├─ useCounter.js
+ │   ├─ useFetch.js
+ │   └─ useLocalStorage.js
+ ├─ App.jsx
+ ├─ main.jsx
+ ├─ index.css
+ └─ App.css
 ```
 
 ---
 
-## 🧩 Custom Hooks incluidos
+## 🧩 Hooks incluidos y ejemplos
 
-### 🔢 `useCounter`
-Controla un contador.
+### `useCounter` (src/hooks/useCounter.js)
+Hook simple para manejar un contador.
 
-```js
-const { counter, increase, decrease, reset } = useCounter(0);
+Ejemplo de uso en `Counter.jsx`:
+
+```jsx
+import { useCounter } from '../hooks/useCounter';
+
+const { count, increment, decrement, reset } = useCounter(3);
+```
+
+### `useFetch` (src/hooks/useFetch.js)
+Hook para consumir APIs con `fetch`.
+
+Ejemplo breve:
+
+```jsx
+const { data, loading } = useFetch('https://jsonplaceholder.typicode.com/posts');
+```
+
+Nota: `Posts.jsx` ya protege contra `null` cuando no hay datos.
+
+### `useLocalStorage` (src/hooks/useLocalStorage.js)
+Hook para persistir estado en `localStorage`.
+
+Ejemplo:
+
+```jsx
+const [theme, setTheme] = useLocalStorage('theme', 'light');
 ```
 
 ---
 
-### 🌐 `useFetch`
-Para consumir APIs.
-
-```js
-const { data, loading, error } = useFetch("https://jsonplaceholder.typicode.com/users");
-```
+## ⚙ Componentes principales
+- `Counter` — demo de `useCounter` (botones +, -, reset).
+- `Posts` — muestra posts consumidos con `useFetch`.
+- `ThemeToggle` — cambia tema usando `useLocalStorage` y aplica `data-theme` en el `documentElement`.
 
 ---
-
-### 🎚️ `useToggle`
-Maneja valores booleanos.
-
-```js
-const { value, toggle } = useToggle(false);
-```
-
----
-
-### 📝 `useForm`
-Manejo de formularios.
-
-```js
-const { form, handleChange, resetForm } = useForm({ name: "", email: "" });
-```
-
----
-
-### 💾 `useLocalStorage`
-Lee y guarda información en el navegador.
-
-```js
-const [value, setValue] = useLocalStorage("key", "valor inicial");
-```
-
----
-
-## 📗 ¿Qué son los Custom Hooks?
-
-Son funciones que:
-✔ Comienzan con `use`  
-✔ Usan otros hooks de React  
-✔ Permiten reutilizar lógica entre componentes  
-
-Documentación oficial:  
-https://react.dev/learn/reusing-logic-with-custom-hooks
-
----
-
-# 🇺🇸 **ENGLISH VERSION**
-
-# 🧩 React Custom Hooks Project
-
-This is a demonstration project built with **React + Vite**, showing how to create and use **Custom Hooks** to reuse logic and improve code organization.
-
-Includes custom hooks such as:
-- `useCounter` → Counter logic  
-- `useToggle` → Boolean state control  
-- `useFetch` → API consumption  
-- `useForm` → Form handling  
-- `useLocalStorage` → Persistent storage  
-
----
-
-## 🚀 Technologies Used
-- React 18  
-- Vite  
-- JavaScript ES Modules  
-- Fetch API  
-- LocalStorage API  
-
----
-
-## 📦 Installation
-
-```bash
-git clone https://github.com/your-username/react-custom-hooks.git
-cd react-custom-hooks
-npm install
-```
-
----
-
-## ▶ Run in Development Mode
-
-```bash
-npm run dev
-```
-
-Open the browser:  
-👉 http://localhost:5173/
-
----
-
-## 🏗 Project Structure
-
-```plaintext
-📁 src
- ├── 📁 hooks
- │    ├── useCounter.js
- │    ├── useFetch.js
- │    ├── useToggle.js
- │    ├── useForm.js
- │    └── useLocalStorage.js
- │
- ├── components
- │    ├── Counter.jsx
- │    ├── UsersList.jsx
- │    ├── ToggleBox.jsx
- │    ├── FormExample.jsx
- │    └── LocalStorageExample.jsx
- │
- ├── App.jsx
- ├── main.jsx
- └── styles.css
-```
-
----
-
-## 📘 What Are Custom Hooks?
-
-They are functions that:  
-✔ Start with `use`  
-✔ Use React’s built-in hooks  
-✔ Allow reusing logic across components  
-
-Official docs:  
-https://react.dev/learn/reusing-logic-with-custom-hooks
