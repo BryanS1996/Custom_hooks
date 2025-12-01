@@ -5,13 +5,12 @@ export function Posts() {
 
   if (loading) return <p>Cargando...</p>;
   
-  // SOLUCIÓN: Si hubo un error y data es null, no intentes hacer slice
   if (!data) return <p>No hay datos disponibles</p>; 
 
   return (
     <div>
       <h2>Posts</h2>
-      {/* El ?. (optional chaining) también protege contra nulos */}
+      {/*(optional chaining) */}
       {data.slice(0, 5).map(post => (
         <p key={post.id}>{post.title}</p>
       ))}
