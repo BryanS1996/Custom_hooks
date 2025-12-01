@@ -3,8 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* Quitamos el color-scheme automático */
-  /* color-scheme: light dark; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,9 +25,6 @@ body {
   color: inherit;
 }
 
-/* ----------------------------- */
-/*        TEMAS MANUALES        */
-/* ----------------------------- */
 
 html.light {
   background-color: #ffffff;
@@ -41,7 +36,7 @@ html.dark {
   color: rgba(255, 255, 255, 0.87);
 }
 
-/* Botones */
+
 html.light button {
   background-color: #f1f1f1;
   color: #213547;
@@ -52,7 +47,7 @@ html.dark button {
   color: white;
 }
 
-/* Botón hover */
+
 button:hover {
   border-color: #646cff;
 }
