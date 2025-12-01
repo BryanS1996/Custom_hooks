@@ -104,3 +104,6 @@ const [theme, setTheme] = useLocalStorage('theme', 'light');
 
 ## References: 
 - https://react.dev/learn/reusing-logic-with-custom-hooks
+- https://www.robinwieruch.de/react-custom-hook/
+- https://roadmap.sh/react
+  
