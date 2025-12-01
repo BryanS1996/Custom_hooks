@@ -7,7 +7,6 @@ export function ThemeToggle() {
   useEffect(() => {
     const html = document.documentElement;
 
-    // Aplica la clase correcta
     if (theme === "dark") {
       html.classList.add("dark");
       html.classList.remove("light");
