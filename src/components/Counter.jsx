@@ -1,7 +1,7 @@
 import { useCounter } from "../hooks/useCounter";
 
 export function Counter() {
-  const { count, increment, decrement, reset } = useCounter(5);
+  const { count, increment, decrement, reset } = useCounter(3);
 
   return (
     <div>
