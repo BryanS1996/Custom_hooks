@@ -1,0 +1,89 @@
+:root {
+  /* Variables Tema Claro (Por defecto) */
+  --bg-body: #f0f2f5;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --accent-color: #646cff;
+  --accent-hover: #535bf2;
+  --border-color: #ddd;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Variables Tema Oscuro */
+body.dark {
+  --bg-body: #1a1a1a;
+  --bg-card: #242424;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1a1;
+  --accent-color: #747bff;
+  --accent-hover: #535bf2;
+  --border-color: #444;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  background-color: var(--accent-color);
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+button.secondary {
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+button.secondary:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Estilos forzados para modo claro */
+body {
+  background-color: #ffffff;
+  color: #213547;
+}
+
+/* Estilos forzados para modo oscuro */
+body.dark {
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* Asegurar que los botones cambien también en modo oscuro */
+body.dark button {
+  background-color: #1a1a1a;
+  color: white;
+  border-color: transparent;
+}
+
+body:not(.dark) button {
+  background-color: #f9f9f9;
+  color: #213547;
+}
